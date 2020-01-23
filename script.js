@@ -17,29 +17,29 @@ var createPolitician = function(name, partyColor){
     };//end createPolitician
     
     //assigns the two politicians their colors
-    var whithersColor =  [132, 17, 11];
+    var withersColor =  [132, 17, 11];
     var chopsColor = [245, 141, 136];
     
     //creates the two politicians
-    var whithers = createPolitician("Whithers",whithersColor);
+    var withers = createPolitician("Withers",withersColor);
     var chops = createPolitician("Chops", chopsColor);
     
-    //whithers election results 
+    //withers election results 
     
-    whithers.electionResults = [5,1,7,2,33,6,4,2,1,14,8,2,1,11,11,0,5,3,3,3,7,4,8,9,3,7,2,2,4,2,8,3,15,15,2,12,0,4,13,1,3,2,8,21,3,2,11,1,3,7,2];
+    withers.electionResults = [5,1,7,2,33,6,4,2,1,14,8,2,1,11,11,0,5,3,3,3,7,4,8,9,3,7,2,2,4,2,8,3,15,15,2,12,0,4,13,1,3,2,8,21,3,2,11,1,3,7,2];
     
     //chops election results
     chops.electionResults =[4,2,4,4,22,3,3,1,2,15,8,1,3,9,0,6,1,5,5,1,3,7,8,1,3,3,1,3,2,2,6,2,14,0,1,6,7,3,7,3,6,1,3,17,3,1,2,11,2,3,1];
     
     
     //updated election results
-    whithers.electionResults[9] = 1;
+    withers.electionResults[9] = 1;
     chops.electionResults[9] = 8;
     
-    whithers.electionResults[4] = 17;
+    withers.electionResults[4] = 17;
     chops.electionResults[4] = 38;
     
-    whithers.electionResults[43] = 11;
+    withers.electionResults[43] = 11;
     chops.electionResults[43] = 27;
     
     //assigns the winner of each state
@@ -47,10 +47,10 @@ var createPolitician = function(name, partyColor){
     var setStateResults = function(state){
       
       theStates[state].winner = null;
-      if (whithers.electionResults[state] > chops.electionResults[state]){
-        theStates[state].winner = whithers;
+      if (withers.electionResults[state] > chops.electionResults[state]){
+        theStates[state].winner = withers;
       }
-      else if (whithers.electionResults[state] < chops.electionResults[state]){
+      else if (withers.electionResults[state] < chops.electionResults[state]){
         theStates[state].winner = chops;
       }
       
@@ -75,8 +75,8 @@ var createPolitician = function(name, partyColor){
       
     stateName.innerText = theStates[state].nameFull;
     stateAbbreviation.innerText = theStates[state].nameAbbrev;
-    candidate1Name.innerText = whithers.name;
-    candidate1Result.innerText = whithers.electionResults[state];
+    candidate1Name.innerText = withers.name;
+    candidate1Result.innerText = withers.electionResults[state];
     candidate2Name.innerText = chops.name;
     candidate2Result.innerText = chops.electionResults[state];
     
@@ -89,17 +89,17 @@ var createPolitician = function(name, partyColor){
     };//ends setStateResults
     
     //calls function to add up total votes
-    whithers.addUpTotalVotes();
+    withers.addUpTotalVotes();
     chops.addUpTotalVotes();
     
     //declares a winner
     var winner;
     
-    if (whithers.totalVotes > chops.totalVotes){
-      winner = "WHITHERS";
+    if (withers.totalVotes > chops.totalVotes){
+      winner = "Withers";
     }
-    else if (whithers.totalVotes < chops.totalVotes){
-      winner = "CHOPS";
+    else if (withers.totalVotes < chops.totalVotes){
+      winner = "Chops";
     }
     else {
       winner = "It's a tie!";
@@ -109,8 +109,8 @@ var createPolitician = function(name, partyColor){
     var nationalTable = document.getElementById("countryResults");
     var row = nationalTable.children[0].children[0];
     
-    row.children[0].innerText = whithers.name;
-    row.children[1].innerText = whithers.totalVotes;
+    row.children[0].innerText = withers.name;
+    row.children[1].innerText = withers.totalVotes;
     row.children[2].innerText = chops.name;
     row.children[3].innerText = chops.totalVotes;
     row.children[4].innerText = "WINNER";
